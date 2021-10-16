@@ -63,12 +63,12 @@ function startGame() {
 function placeToken(event) {
   // hide one token based on turn order
   // check if the squares below have an occupant and move the image down if so.
-  if (event.target.class !== "taken") {
+  if (!event.target.classList.contains("taken")) {
     event.target.classList.add(tokenTurn());
     console.log(turnOrder)
     event.target.classList.add("taken");
+    turnOrder = turnOrder * -1;
   }
-  turnOrder = turnOrder * -1;
 }
 
 function tokenTurn(){
