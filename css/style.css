@@ -23,7 +23,63 @@ body {
   min-height: 100vh;
 }
 
+main {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  grid-template-areas: 
+  ". main-message ."
+  "player-one board player-two";
+}
+
+.main-message {
+  grid-area: main-message;
+}
+
+.player-one {
+  grid-area: player-one;
+  width: 400px;
+  display: grid;
+  grid-template-areas: 
+  "p1-title"
+  "p1-tokens";
+}
+
+.p1-tokens {
+  grid-area: p1-tokens;
+  display: grid;
+  border: 3px solid black;
+  grid-template-areas: 
+  "p1-token1 p1-token2 p1-token3 p1-token4 p1-token5"
+  "p1-token6 p1-token7 p1-token8 p1-token9 p1-token10"
+  "p1-token11 p1-token12 p1-token13 p1-token14 p1-token15"
+  "p1-token16 p1-token17 p1-token18 p1-token19 p1-token20"
+  ". . p1-token21 . .";
+}
+
+.player-two {
+  grid-area: player-two;
+  width: 400px;
+  display: grid;
+  grid-template-areas: 
+  "p2-title"
+  "p2-tokens";
+}
+
+.p2-tokens {
+  grid-area: p2-tokens;
+  display: grid;
+  border: 3px solid black;
+  grid-template-areas: 
+  "p2-token1 p2-token2 p2-token3 p2-token4 p2-token5"
+  "p2-token6 p2-token7 p2-token8 p2-token9 p2-token10"
+  "p2-token11 p2-token12 p2-token13 p2-token14 p2-token15"
+  "p2-token16 p2-token17 p2-token18 p2-token19 p2-token20"
+  ". . p2-token21 . .";
+}
+
 .board {
+  grid-area: board;
   display: grid;
   width: 700px;
   height: 600px;
