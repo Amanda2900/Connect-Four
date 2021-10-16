@@ -196,3 +196,19 @@ div.p2-tokens > *{
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.drop-token1 {
+  background-image: url("../img/token1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.drop-token2 {
+  background-image: url("../img/token2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/* .drag-over {
+  border: dashed 3px rgb(70, 1, 88);
+} */
+
