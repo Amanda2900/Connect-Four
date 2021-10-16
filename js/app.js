@@ -41,5 +41,5 @@ function darkPage() {
 function startGame() {
   lightBtn.setAttribute("hidden", true);
   darkBtn.setAttribute("hidden", true);
-  message.innerText = "Choose your mode";
+  message.innerText = "Connect Four";
 }
