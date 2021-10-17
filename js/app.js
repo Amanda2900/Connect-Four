@@ -5,13 +5,24 @@
 /*-------------------------------- Variables --------------------------------*/
 // let draggable;
 let turnOrder = 1;
+let boardGrid = [
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+];
+
 
 /*------------------------ Cached Element References ------------------------*/
 const mainBtn = document.querySelector("#main-button");
 const message = document.querySelector("#message");
 const lightBtn = document.querySelector("#light");
 const darkBtn = document.querySelector("#dark");
-const board = document.querySelector(".board")
+const board = document.querySelector(".board");
+const squares = document.querySelectorAll(".sq")
 // const p1Tokens = document.querySelectorAll(".tkn1");
 // const p2Tokens = document.querySelector(".p2-tokens");
 // const dropZones = document.querySelectorAll(".dropzone");
@@ -22,6 +33,7 @@ mainBtn.addEventListener("click", modePage);
 lightBtn.addEventListener("click", lightPage);
 darkBtn.addEventListener("click", darkPage);
 board.addEventListener("click", placeToken);
+
 // p1Tokens.forEach(token => {
 //   addEventListener("drag", dragStart);
 // });
@@ -63,13 +75,39 @@ function startGame() {
 function placeToken(event) {
   // hide one token based on turn order
   // check if the squares below have an occupant and move the image down if so.
-  if (!event.target.classList.contains("taken")) {
-    event.target.classList.add(tokenTurn());
-    console.log(turnOrder)
-    event.target.classList.add("taken");
-    turnOrder = turnOrder * -1;
+  
+  let x = findBottomSq(event.target);
+
+  for (i = 1; i <= 6; i++) {
+    if (!squares[x - i].classList.contains("taken")) {
+      squares[x - i].classList.add(tokenTurn());
+      squares[x - i].classList.add("taken");
+      turnOrder = turnOrder * -1;
+      break;
   }
-}
+  }
+
+  // if (!squares[x].classList.contains("taken")) {
+  //   squares[x].classList.add(tokenTurn());
+  //   squares[x].classList.add("taken");
+  //   turnOrder = turnOrder * -1;
+  // }
+  // console.log(parseInt(event.target.id));
+  // let r = Math.round(parseInt(event.target.id) / 7);
+  // console.log(r);
+  // let c = (Math.round(parseInt(event.target.id) / 6));
+  // console.log(c);
+  // for (i = 1; i < 6; i++){
+  //   if (boardGrid[r][c - i] !== null)
+  //     boardGrid[r][c - i] = turnOrder;
+  //     let idx = r * c;
+  //     squares.idx.classList.add(tokenTurn());
+  //     turnOrder = turnOrder * -1;
+  //     break;
+  //     }
+    }
+    // event.target.classList.add(tokenTurn());
+    // event.target.classList.add("taken");
 
 function tokenTurn(){
   if (turnOrder === 1) {
@@ -79,6 +117,29 @@ function tokenTurn(){
   }
 };
 
+function findBottomSq (element){
+  if (parseInt(element.id) > 0 && parseInt(element.id) < 7) {
+    return 6;
+  }
+  if (parseInt(element.id) > 6 && parseInt(element.id) < 13) {
+    return 12;
+  }
+  if (parseInt(element.id) > 12 && parseInt(element.id) < 19) {
+    return 18;
+  }
+  if (parseInt(element.id) > 18 && parseInt(element.id) < 25) {
+    return 24;
+  }
+  if (parseInt(element.id) > 24 && parseInt(element.id) < 31) {
+    return 30;
+  }
+  if (parseInt(element.id) > 30 && parseInt(element.id) < 37) {
+    return 36;
+  }
+  if (parseInt(element.id) > 36 && parseInt(element.id) < 43) {
+    return 42;
+  }
+}
 // function dragStart(event) {
 //   draggable = event.target.id;
 //   event.dataTransfer.setData("text/plain", event.target.id);
