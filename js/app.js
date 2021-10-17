@@ -23,6 +23,8 @@ const lightBtn = document.querySelector("#light");
 const darkBtn = document.querySelector("#dark");
 const board = document.querySelector(".board");
 const squares = document.querySelectorAll(".sq")
+const pOneTokens = document.querySelectorAll(".tkn1")
+const pTwoTokens = document.querySelectorAll(".tkn2")
 // const p1Tokens = document.querySelectorAll(".tkn1");
 // const p2Tokens = document.querySelector(".p2-tokens");
 // const dropZones = document.querySelectorAll(".dropzone");
@@ -75,39 +77,18 @@ function startGame() {
 function placeToken(event) {
   // hide one token based on turn order
   // check if the squares below have an occupant and move the image down if so.
-  
   let x = findBottomSq(event.target);
 
   for (i = 1; i <= 6; i++) {
     if (!squares[x - i].classList.contains("taken")) {
       squares[x - i].classList.add(tokenTurn());
       squares[x - i].classList.add("taken");
+      useTokens();
       turnOrder = turnOrder * -1;
       break;
-  }
-  }
-
-  // if (!squares[x].classList.contains("taken")) {
-  //   squares[x].classList.add(tokenTurn());
-  //   squares[x].classList.add("taken");
-  //   turnOrder = turnOrder * -1;
-  // }
-  // console.log(parseInt(event.target.id));
-  // let r = Math.round(parseInt(event.target.id) / 7);
-  // console.log(r);
-  // let c = (Math.round(parseInt(event.target.id) / 6));
-  // console.log(c);
-  // for (i = 1; i < 6; i++){
-  //   if (boardGrid[r][c - i] !== null)
-  //     boardGrid[r][c - i] = turnOrder;
-  //     let idx = r * c;
-  //     squares.idx.classList.add(tokenTurn());
-  //     turnOrder = turnOrder * -1;
-  //     break;
-  //     }
     }
-    // event.target.classList.add(tokenTurn());
-    // event.target.classList.add("taken");
+  }
+}
 
 function tokenTurn(){
   if (turnOrder === 1) {
@@ -138,6 +119,26 @@ function findBottomSq (element){
   }
   if (parseInt(element.id) > 36 && parseInt(element.id) < 43) {
     return 42;
+  }
+}
+
+function useTokens() {
+  for (i = 0; i <= pTwoTokens.length; i++) {
+    if (turnOrder === 1) {
+
+      if (!pOneTokens[i].classList.contains("used")) {
+        pOneTokens[i].classList.add("used");
+          break;
+      } else {
+      }
+    } else {
+      if (!pTwoTokens[i].classList.contains("used")) {
+        console.log(pTwoTokens[i])
+        pTwoTokens[i].classList.add("used");
+        break;
+      } else {
+      }
+    }
   }
 }
 // function dragStart(event) {

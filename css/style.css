@@ -206,3 +206,6 @@ div.p2-tokens > *{
   border: dashed 3px rgb(70, 1, 88);
 } */
 
+.used {
+  display: none;
+}
