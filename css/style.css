@@ -95,24 +95,24 @@ main {
   display: grid;
   grid-template-areas:
 
+  "0"
   "1"
   "2"
   "3"
   "4"
-  "5"
-  "6";
+  "5";
 }
 .row2 {
   border-right: 3px solid black;
   grid-area: row2;
   display: grid;
   grid-template-areas:
+  "6"
   "7"
   "8"
   "9"
   "10"
-  "11"
-  "12";
+  "11";
 }
 
 .row3 {
@@ -120,12 +120,12 @@ main {
   grid-area: row3;
   display: grid;
   grid-template-areas:
+  "12"
   "13"
   "14"
   "15"
   "16"
-  "17"
-  "18";
+  "17";
 }
 
 .row4 {
@@ -133,12 +133,12 @@ main {
   grid-area: row4;
   display: grid;
   grid-template-areas:
+  "18"
   "19"
   "20"
   "21"
   "22"
-  "23"
-  "24";
+  "23";
 }
 
 .row5 {
@@ -146,12 +146,12 @@ main {
   grid-area: row5;
   display: grid;
   grid-template-areas:
+  "24"
   "25"
   "26"
   "27"
   "28"
-  "29"
-  "30";
+  "29";
 }
 
 .row6 {
@@ -159,24 +159,24 @@ main {
   grid-area: row6;
   display: grid;
   grid-template-areas:
+  "30"
   "31"
   "32"
   "33"
   "34"
-  "35"
-  "36";
+  "35";
 }
 
 .row7 {
   grid-area: row7;
   display: grid;
   grid-template-areas:
+  "36"
   "37"
   "38"
   "39"
   "40"
-  "41"
-  "42";
+  "41";
 }
 
 div.p1-tokens > *{

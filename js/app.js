@@ -1,19 +1,89 @@
 /*-------------------------------- Constants --------------------------------*/
-
+const winningCombos = [
+  // verticals
+  [5, 4, 3, 2],
+  [4, 3, 2, 1],
+  [3, 2, 1, 0],
+  [11, 10, 9, 8],
+  [10, 9, 8, 7],
+  [9, 8, 7, 6],
+  [17, 16, 15, 14],
+  [16, 15, 14, 13],
+  [15, 14, 13, 12],
+  [23, 22, 21, 20],
+  [22, 21, 20, 19],
+  [21, 20, 19, 18],
+  [29, 28, 27, 26],
+  [28, 27, 26, 25],
+  [27, 26, 25, 24],
+  [35, 34, 33, 32],
+  [34, 33, 32, 31],
+  [33, 32, 31, 30],
+  [41, 40, 39, 38],
+  [40, 39, 38, 37],
+  [39, 38, 37, 36],
+  // horizontals
+  [5, 11, 17, 23],
+  [11, 17, 23, 29],
+  [17, 23, 29, 35],
+  [23, 29, 35, 41],
+  [4, 10, 16, 22],
+  [10, 16, 22, 28],
+  [16, 22, 28, 34],
+  [22, 28, 34, 40],
+  [3, 9, 15, 21],
+  [9, 15, 21, 27],
+  [15, 21, 27, 33],
+  [21, 27, 33, 39],
+  [2, 8, 14, 20], 
+  [8, 14, 20, 27],
+  [14, 20, 27, 32],
+  [20, 27, 32, 38],
+  [1, 7, 13, 19],
+  [7, 13, 19, 25],
+  [13, 19, 25, 31],
+  [19, 25, 31, 37],
+  [0, 6, 12, 18],
+  [6, 12, 18, 24],
+  [12, 18, 24, 30],
+  [18, 24, 30, 36],
+  // Diagonals top left to bottom right
+  [2, 9, 16, 23],
+  [1, 8, 15, 22],
+  [8, 15, 22, 29],
+  [0, 7, 14, 21],
+  [7, 14, 21, 28],
+  [14, 21, 28, 35],
+  [6, 13, 20, 27],
+  [13, 20, 27, 34],
+  [20, 27, 34, 41],
+  [12, 19, 26, 33],
+  [19, 26, 33, 40],
+  [18, 25, 32, 39],
+  // Diagonals top right to bottom left
+  [23, 28, 33, 38],
+  [17, 22, 27, 32],
+  [22, 27, 32, 37],
+  [11, 16, 21, 26],
+  [16, 21, 26, 31],
+  [21, 26, 31, 36],
+  [5, 10, 15, 20],
+  [10, 15, 20, 25],
+  [15, 20, 25, 30],
+  [4, 9, 14, 19],
+  [9, 14, 19, 24],
+  [3, 8, 13, 18]
+]
 
 
 /*-------------------------------- Variables --------------------------------*/
 // let draggable;
 let turnOrder = 1;
-let boardGrid = [
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-];
+let boardGrid =[
+    null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+  ];
+let winner = null;
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -79,15 +149,20 @@ function placeToken(event) {
   // check if the squares below have an occupant and move the image down if so.
   let x = findBottomSq(event.target);
 
-  for (i = 1; i <= 6; i++) {
+  for (i = 0; i <= 5; i++) {
     if (!squares[x - i].classList.contains("taken")) {
       squares[x - i].classList.add(tokenTurn());
       squares[x - i].classList.add("taken");
       useTokens();
+      console.log(boardGrid)
       turnOrder = turnOrder * -1;
       break;
     }
   }
+}
+
+function getWinner () {
+
 }
 
 function tokenTurn(){
@@ -99,26 +174,26 @@ function tokenTurn(){
 };
 
 function findBottomSq (element){
-  if (parseInt(element.id) > 0 && parseInt(element.id) < 7) {
-    return 6;
+  if (parseInt(element.id) > -1 && parseInt(element.id) < 6) {
+    return 5;
   }
-  if (parseInt(element.id) > 6 && parseInt(element.id) < 13) {
-    return 12;
+  if (parseInt(element.id) > 5 && parseInt(element.id) < 12) {
+    return 11;
   }
-  if (parseInt(element.id) > 12 && parseInt(element.id) < 19) {
-    return 18;
+  if (parseInt(element.id) > 11 && parseInt(element.id) < 18) {
+    return 17;
   }
-  if (parseInt(element.id) > 18 && parseInt(element.id) < 25) {
-    return 24;
+  if (parseInt(element.id) > 17 && parseInt(element.id) < 24) {
+    return 23;
   }
-  if (parseInt(element.id) > 24 && parseInt(element.id) < 31) {
-    return 30;
+  if (parseInt(element.id) > 23 && parseInt(element.id) < 30) {
+    return 29;
   }
-  if (parseInt(element.id) > 30 && parseInt(element.id) < 37) {
-    return 36;
+  if (parseInt(element.id) > 29 && parseInt(element.id) < 36) {
+    return 35;
   }
-  if (parseInt(element.id) > 36 && parseInt(element.id) < 43) {
-    return 42;
+  if (parseInt(element.id) > 35 && parseInt(element.id) < 42) {
+    return 41;
   }
 }
 
@@ -133,7 +208,6 @@ function useTokens() {
       }
     } else {
       if (!pTwoTokens[i].classList.contains("used")) {
-        console.log(pTwoTokens[i])
         pTwoTokens[i].classList.add("used");
         break;
       } else {
