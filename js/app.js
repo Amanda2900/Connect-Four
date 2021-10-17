@@ -148,17 +148,24 @@ function placeToken(event) {
   // hide one token based on turn order
   // check if the squares below have an occupant and move the image down if so.
   let x = findBottomSq(event.target);
+  let i = 0;
 
-  for (i = 0; i <= 5; i++) {
-    if (!squares[x - i].classList.contains("taken")) {
+  if (!squares[x].classList.contains("taken")) {
+    squares[x].classList.add(tokenTurn());
+    squares[x].classList.add("taken");
+    useTokens();
+    boardGrid[x] = turnOrder;
+    turnOrder = turnOrder * -1;
+  } else {
+      do {
+        i += 1
+      } while (squares[x - i].classList.contains("taken"))
       squares[x - i].classList.add(tokenTurn());
       squares[x - i].classList.add("taken");
       useTokens();
-      console.log(boardGrid)
+      boardGrid[x - i] = turnOrder;
       turnOrder = turnOrder * -1;
-      break;
     }
-  }
 }
 
 function getWinner () {
@@ -250,4 +257,4 @@ function useTokens() {
 
 //   // display the draggable element
 //   draggable.removeAttribute("hidden");
-// }
+// 
