@@ -95,6 +95,8 @@ const squares = document.querySelectorAll(".sq");
 const pOneTokens = document.querySelectorAll(".tkn1");
 const pTwoTokens = document.querySelectorAll(".tkn2");
 const replayBtn = document.querySelector("#replay");
+const p1 = document.querySelector(".player-one");
+const p2 = document.querySelector(".player-two");
 
 // const p1Tokens = document.querySelectorAll(".tkn1");
 // const p2Tokens = document.querySelector(".p2-tokens");
@@ -124,7 +126,7 @@ init();
 
 function init() {
   message.innerText = "Welcome";
-  // replayBtn.setAttribute("hidden", true);
+  replayBtn.setAttribute("hidden", true);
   mainBtn.removeAttribute("hidden");
   turnOrder = 1;
   winner = null;
@@ -135,6 +137,9 @@ function init() {
   squares.forEach(element => element.classList.remove("drop-token1", "drop-token2", "taken"));
   pOneTokens.forEach(element => element.classList.remove("used"));
   pTwoTokens.forEach(element => element.classList.remove("used"));
+  board.setAttribute("hidden", true);
+  p1.setAttribute("hidden", true);
+  p2.setAttribute("hidden", true);
 };
 
 function modePage() {
@@ -159,7 +164,9 @@ function startGame() {
   lightBtn.setAttribute("hidden", true);
   darkBtn.setAttribute("hidden", true);
   message.innerText = "Connect Four";
-  turnOrder = 1;
+  board.removeAttribute("hidden");
+  p1.removeAttribute("hidden");
+  p2.removeAttribute("hidden");
 };
 
 function render() {
