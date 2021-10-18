@@ -38,7 +38,7 @@ main {
 
 .player-one {
   grid-area: player-one;
-  width: 350px;
+  width: 250px;
   display: grid;
   grid-template-areas: 
   "p1-title"
@@ -59,7 +59,7 @@ main {
 
 .player-two {
   grid-area: player-two;
-  width: 350px;
+  width: 250px;
   display: grid;
   grid-template-areas: 
   "p2-title"
@@ -81,16 +81,22 @@ main {
 .board {
   grid-area: board;
   display: grid;
-  width: 510px;
-  height: 511px;
-  border: 3px solid black;
+  width: 350px;
+  height: 300px;
+  border: 3px solid rgb(41, 4, 116);
+  background-color: rgb(41, 4, 116);
   grid-template-areas:
   "row1 row2 row3 row4 row5 row6 row7";
   margin-top: 90px;
 }
 
+.sq {
+  border-radius: 50%;
+  background-color:rgb(206, 165, 243);
+  border: 8px solid rgb(41, 4, 116);
+}
+
 .row1 {
-  border-right: 3px solid black;
   grid-area: row1;
   display: grid;
   grid-template-areas:
@@ -103,7 +109,6 @@ main {
   "5";
 }
 .row2 {
-  border-right: 3px solid black;
   grid-area: row2;
   display: grid;
   grid-template-areas:
@@ -116,7 +121,6 @@ main {
 }
 
 .row3 {
-  border-right: 3px solid black;
   grid-area: row3;
   display: grid;
   grid-template-areas:
@@ -129,7 +133,6 @@ main {
 }
 
 .row4 {
-  border-right: 3px solid black;
   grid-area: row4;
   display: grid;
   grid-template-areas:
@@ -142,7 +145,6 @@ main {
 }
 
 .row5 {
-  border-right: 3px solid black;
   grid-area: row5;
   display: grid;
   grid-template-areas:
@@ -155,7 +157,6 @@ main {
 }
 
 .row6 {
-  border-right: 3px solid black;
   grid-area: row6;
   display: grid;
   grid-template-areas:
