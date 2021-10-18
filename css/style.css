@@ -27,19 +27,27 @@ main {
   display: grid;
   width: 100%;
   justify-content: center;
+  align-items: center;
+  grid-template-rows: 200px;
   grid-template-areas: 
   ". main-message ."
   "player-one board player-two";
 }
 
+h1 {
+  font-size: 50px;
+  color:rgb(41, 4, 116);
+}
+
 .main-message {
   grid-area: main-message;
+  margin-top: 200px;
 }
 
 .player-one {
   grid-area: player-one;
-  width: 250px;
   display: grid;
+  margin-right: 10px;
   grid-template-areas: 
   "p1-title"
   "p1-tokens";
@@ -48,7 +56,8 @@ main {
 .p1-tokens {
   grid-area: p1-tokens;
   display: grid;
-  border: 3px solid black;
+  width: 250px;
+  height: 220px;
   grid-template-areas: 
   "p1-token1 p1-token2 p1-token3 p1-token4 p1-token5"
   "p1-token6 p1-token7 p1-token8 p1-token9 p1-token10"
@@ -59,8 +68,8 @@ main {
 
 .player-two {
   grid-area: player-two;
-  width: 250px;
   display: grid;
+  margin-left: 10px;
   grid-template-areas: 
   "p2-title"
   "p2-tokens";
@@ -69,7 +78,8 @@ main {
 .p2-tokens {
   grid-area: p2-tokens;
   display: grid;
-  border: 3px solid black;
+  width: 250px;
+  height: 220px;
   grid-template-areas: 
   "p2-token1 p2-token2 p2-token3 p2-token4 p2-token5"
   "p2-token6 p2-token7 p2-token8 p2-token9 p2-token10"
@@ -87,13 +97,12 @@ main {
   background-color: rgb(41, 4, 116);
   grid-template-areas:
   "row1 row2 row3 row4 row5 row6 row7";
-  margin-top: 90px;
 }
 
 .sq {
   border-radius: 50%;
   background-color:rgb(206, 165, 243);
-  border: 8px solid rgb(41, 4, 116);
+  border: 5px solid rgb(41, 4, 116);
 }
 
 .row1 {
@@ -180,18 +189,6 @@ main {
   "41";
 }
 
-div.p1-tokens > *{
-  background-image: url("../img/token1.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-div.p2-tokens > *{
-  background-image: url("../img/token2.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 .drop-token1 {
   background-image: url("../img/token1.png");
   background-size: contain;
@@ -209,4 +206,50 @@ div.p2-tokens > *{
 
 .used {
   display: none;
+}
+
+#title {
+  margin-top: -150px;
+  margin-left: 27px;
+}
+
+#main-button {
+  margin-left: 70px;
+  color:rgb(41, 4, 116);
+  font-size: 20px;
+}
+
+#replay {
+  margin-top: 10px;
+  margin-left: 185px;
+  color:rgb(41, 4, 116);
+  font-size: 20px;
+}
+
+#light {
+  margin-left: 130px;
+  font-size: 20px;
+}
+
+#dark {
+  margin: 10px;
+  font-size: 20px;
+}
+
+#p1-title, #p2-title {
+  margin-left: 65px;
+  font-size: 25px;
+  color: rgb(41, 4, 116);
+}
+
+div.p1-tokens > *{
+  background-image: url("../img/token1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+div.p2-tokens > *{
+  background-image: url("../img/token2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }

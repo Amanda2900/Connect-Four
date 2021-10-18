@@ -79,9 +79,9 @@ const winningCombos = [
 // let draggable;
 let turnOrder = 1;
 let boardGrid =[
-    null, null, null, null, null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
-  ];
+  null, null, null, null, null, null, null, null, null, null, null, null,
+  null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+];
 let winner = null;
 
 
@@ -167,6 +167,8 @@ function startGame() {
   board.removeAttribute("hidden");
   p1.removeAttribute("hidden");
   p2.removeAttribute("hidden");
+  message.removeAttribute("id");
+  message.setAttribute("id", "title");
 };
 
 function render() {
@@ -175,10 +177,20 @@ function render() {
   if (winner !== null) {
     message.innerText = (winner === 1) ? 'Player 1 is the winner!' : 'Player 2 is the winner!';
     replayBtn.removeAttribute("hidden");
+    board.setAttribute("hidden", true);
+    p1.setAttribute("hidden", true);
+    p2.setAttribute("hidden", true);
+    message.removeAttribute("id");
+    message.setAttribute("id", "main-message");
   } 
   if (winner === 'T') {
     message.innerText = 'Tie game!';
     replayBtn.removeAttribute("hidden");
+    board.setAttribute("hidden", true);
+    p1.setAttribute("hidden", true);
+    p2.setAttribute("hidden", true);
+    message.removeAttribute("id");
+    message.setAttribute("id", "main-message");
   }
 };
 
