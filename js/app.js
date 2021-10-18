@@ -75,7 +75,6 @@ const winningCombos = [
   [3, 8, 13, 18]
 ]
 
-
 /*-------------------------------- Variables --------------------------------*/
 // let draggable;
 let turnOrder = 1;
@@ -92,9 +91,11 @@ const message = document.querySelector("#message");
 const lightBtn = document.querySelector("#light");
 const darkBtn = document.querySelector("#dark");
 const board = document.querySelector(".board");
-const squares = document.querySelectorAll(".sq")
-const pOneTokens = document.querySelectorAll(".tkn1")
-const pTwoTokens = document.querySelectorAll(".tkn2")
+const squares = document.querySelectorAll(".sq");
+const pOneTokens = document.querySelectorAll(".tkn1");
+const pTwoTokens = document.querySelectorAll(".tkn2");
+const replayBtn = document.querySelector("#replay");
+
 // const p1Tokens = document.querySelectorAll(".tkn1");
 // const p2Tokens = document.querySelector(".p2-tokens");
 // const dropZones = document.querySelectorAll(".dropzone");
@@ -105,6 +106,7 @@ mainBtn.addEventListener("click", modePage);
 lightBtn.addEventListener("click", lightPage);
 darkBtn.addEventListener("click", darkPage);
 board.addEventListener("click", placeToken);
+replayBtn.addEventListener("click", init);
 
 // p1Tokens.forEach(token => {
 //   addEventListener("drag", dragStart);
@@ -118,6 +120,22 @@ board.addEventListener("click", placeToken);
 // });
 
 /*-------------------------------- Functions --------------------------------*/
+init();
+
+function init() {
+  message.innerText = "Welcome";
+  // replayBtn.setAttribute("hidden", true);
+  mainBtn.removeAttribute("hidden");
+  turnOrder = 1;
+  winner = null;
+  boardGrid =[
+    null, null, null, null, null, null, null, null, null, null, null, null,
+    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+  ];
+  squares.forEach(element => element.classList.remove("drop-token1", "drop-token2", "taken"));
+  pOneTokens.forEach(element => element.classList.remove("used"));
+  pTwoTokens.forEach(element => element.classList.remove("used"));
+};
 
 function modePage() {
   lightBtn.removeAttribute("hidden");
@@ -125,41 +143,40 @@ function modePage() {
   mainBtn.setAttribute("hidden", true);
   message.innerText = "Choose your mode";
   mainBtn.innerText = "Ready";
-}
+};
 
 function lightPage() {
   // active light mode
   startGame();
-}
+};
 
 function darkPage() {
   // active dark mode
   startGame();
-}
+};
 
 function startGame() {
   lightBtn.setAttribute("hidden", true);
   darkBtn.setAttribute("hidden", true);
   message.innerText = "Connect Four";
   turnOrder = 1;
-}
+};
 
-function render () {
+function render() {
   // declare end of the game based on winner value
   // reveal replay button
   if (winner !== null) {
     message.innerText = (winner === 1) ? 'Player 1 is the winner!' : 'Player 2 is the winner!';
-    // replayBtn.removeAttribute("hidden");
+    replayBtn.removeAttribute("hidden");
   } 
   if (winner === 'T') {
     message.innerText = 'Tie game!';
-    // replayBtn.removeAttribute("hidden");
+    replayBtn.removeAttribute("hidden");
   }
-}
+};
 
 function placeToken(event) {
-  // hide one token based on turn order
-  // check if the squares below have an occupant and move the image down if so.
+  
   let x = findBottomSq(event.target);
   let i = 0;
 
@@ -175,6 +192,7 @@ function placeToken(event) {
       do {
         i += 1
       } while (squares[x - i].classList.contains("taken"))
+
       squares[x - i].classList.add(tokenTurn());
       squares[x - i].classList.add("taken");
       useTokens();
@@ -182,8 +200,8 @@ function placeToken(event) {
       turnOrder = turnOrder * -1;
       getWinner();
       render();
-    }
-}
+  }
+};
 
 function getWinner () {
   winningCombos.forEach(function (array) {
@@ -202,7 +220,7 @@ function getWinner () {
       }
     })
   }) 
-}
+};
 
 function tokenTurn(){
   if (turnOrder === 1) {
@@ -234,12 +252,11 @@ function findBottomSq (element){
   if (parseInt(element.id) > 35 && parseInt(element.id) < 42) {
     return 41;
   }
-}
+};
 
 function useTokens() {
   for (i = 0; i <= pTwoTokens.length; i++) {
     if (turnOrder === 1) {
-
       if (!pOneTokens[i].classList.contains("used")) {
         pOneTokens[i].classList.add("used");
           break;
@@ -253,7 +270,7 @@ function useTokens() {
       }
     }
   }
-}
+};
 // function dragStart(event) {
 //   draggable = event.target.id;
 //   event.dataTransfer.setData("text/plain", event.target.id);
