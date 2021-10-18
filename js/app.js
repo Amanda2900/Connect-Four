@@ -36,9 +36,9 @@ const winningCombos = [
   [15, 21, 27, 33],
   [21, 27, 33, 39],
   [2, 8, 14, 20], 
-  [8, 14, 20, 27],
-  [14, 20, 27, 32],
-  [20, 27, 32, 38],
+  [8, 14, 20, 26],
+  [14, 20, 26, 32],
+  [20, 26, 32, 38],
   [1, 7, 13, 19],
   [7, 13, 19, 25],
   [13, 19, 25, 31],
@@ -97,10 +97,7 @@ const pTwoTokens = document.querySelectorAll(".tkn2");
 const replayBtn = document.querySelector("#replay");
 const p1 = document.querySelector(".player-one");
 const p2 = document.querySelector(".player-two");
-
-// const p1Tokens = document.querySelectorAll(".tkn1");
-// const p2Tokens = document.querySelector(".p2-tokens");
-// const dropZones = document.querySelectorAll(".dropzone");
+const body = document.querySelector("body");
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -109,17 +106,6 @@ lightBtn.addEventListener("click", lightPage);
 darkBtn.addEventListener("click", darkPage);
 board.addEventListener("click", placeToken);
 replayBtn.addEventListener("click", init);
-
-// p1Tokens.forEach(token => {
-//   addEventListener("drag", dragStart);
-// });
-
-// dropZones.forEach(zone => {
-//   zone.addEventListener('dragenter', dragEnter)
-//   zone.addEventListener('dragover', dragOver);
-//   zone.addEventListener('dragleave', dragLeave);
-//   zone.addEventListener('drop', drop);
-// });
 
 /*-------------------------------- Functions --------------------------------*/
 init();
@@ -140,6 +126,7 @@ function init() {
   board.setAttribute("hidden", true);
   p1.setAttribute("hidden", true);
   p2.setAttribute("hidden", true);
+  body.classList.remove("dark");
 };
 
 function modePage() {
@@ -156,7 +143,7 @@ function lightPage() {
 };
 
 function darkPage() {
-  // active dark mode
+  darkMode();
   startGame();
 };
 
@@ -290,39 +277,18 @@ function useTokens() {
     }
   }
 };
-// function dragStart(event) {
-//   draggable = event.target.id;
-//   event.dataTransfer.setData("text/plain", event.target.id);
-//   event.dataTransfer.effectAllowed = "move";
-//   event.target.setAttribute("hidden", true);
-// }
 
-// function dragEnter(event) {
-//   event.preventDefault();
-//   event.target.classList.add('drag-over');
-// }
+function darkMode() {
+  body.classList.add("dark");
+};
 
-// function dragOver(event) {
-//   event.preventDefault();
-//   event.target.classList.add('drag-over');
-//   event.dataTransfer.dropEffect = "move";
-// }
+function checkDarkPref() {
+  if (
+    window.matchMedia("(prefers-color-scheme:dark)").matches &&
+    body.className !== "dark"
+  ) {
+    toggleLightDark();
+  }
+};
 
-// function dragLeave(event) {
-//   event.target.classList.remove('drag-over');
-// }
-
-// function drop(event) {
-//   event.target.classList.remove('drag-over');
-
-//   event.preventDefault();
-//   // get the draggable element
-//   const data = event.dataTransfer.getData('text/plain');
-
-//   console.log(document.getElementById(data))
-//   // add it to the drop target
-//   event.target.appendChild(document.getElementById(data));
-
-//   // display the draggable element
-//   draggable.removeAttribute("hidden");
-// 
+checkDarkPref();
