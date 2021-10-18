@@ -144,6 +144,19 @@ function startGame() {
   turnOrder = 1;
 }
 
+function render () {
+  // declare end of the game based on winner value
+  // reveal replay button
+  if (winner !== null) {
+    message.innerText = (winner === 1) ? 'Player 1 is the winner!' : 'Player 2 is the winner!';
+    // replayBtn.removeAttribute("hidden");
+  } 
+  if (winner === 'T') {
+    message.innerText = 'Tie game!';
+    // replayBtn.removeAttribute("hidden");
+  }
+}
+
 function placeToken(event) {
   // hide one token based on turn order
   // check if the squares below have an occupant and move the image down if so.
@@ -156,6 +169,8 @@ function placeToken(event) {
     useTokens();
     boardGrid[x] = turnOrder;
     turnOrder = turnOrder * -1;
+    getWinner();
+    render();
   } else {
       do {
         i += 1
@@ -165,11 +180,28 @@ function placeToken(event) {
       useTokens();
       boardGrid[x - i] = turnOrder;
       turnOrder = turnOrder * -1;
+      getWinner();
+      render();
     }
 }
 
 function getWinner () {
-
+  winningCombos.forEach(function (array) {
+    let counter = 0;
+    array.forEach(function (element) {
+      counter += boardGrid[element];
+      // if the amount of 1 or -1 is equal to 3, set winner to the 
+      // value of winning element in boardSquare
+      if (Math.abs(counter) === 4) {
+        winner = boardGrid[element];
+        // if the board is full and no winner has been declared, change winner to T
+      } else if (boardGrid.includes(null) === false && winner === null) {
+        winner = 'T';
+      }else {
+        return null;
+      }
+    })
+  }) 
 }
 
 function tokenTurn(){
