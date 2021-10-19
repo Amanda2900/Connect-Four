@@ -98,6 +98,7 @@ const replayBtn = document.querySelector("#replay");
 const p1 = document.querySelector(".player-one");
 const p2 = document.querySelector(".player-two");
 const body = document.querySelector("body");
+const hudImg = document.querySelector(".main-message");
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -130,11 +131,10 @@ function init() {
 };
 
 function modePage() {
+  mainBtn.setAttribute("hidden", true);
   lightBtn.removeAttribute("hidden");
   darkBtn.removeAttribute("hidden");
-  mainBtn.setAttribute("hidden", true);
-  message.innerText = "Choose your mode";
-  mainBtn.innerText = "Ready";
+  message.innerText = "Choose mode";
 };
 
 function lightPage() {
@@ -150,34 +150,31 @@ function darkPage() {
 function startGame() {
   lightBtn.setAttribute("hidden", true);
   darkBtn.setAttribute("hidden", true);
-  message.innerText = "Connect Four";
+  hudImg.setAttribute("hidden", true);
   board.removeAttribute("hidden");
   p1.removeAttribute("hidden");
   p2.removeAttribute("hidden");
-  message.removeAttribute("id");
-  message.setAttribute("id", "title");
 };
 
 function render() {
   // declare end of the game based on winner value
   // reveal replay button
   if (winner !== null) {
-    message.innerText = (winner === 1) ? 'Player 1 is the winner!' : 'Player 2 is the winner!';
+    message.innerText = (winner === 1) ? 'Player 1 wins!' : 'Player 2 wins!';
+    hudImg.removeAttribute("hidden");
     replayBtn.removeAttribute("hidden");
     board.setAttribute("hidden", true);
     p1.setAttribute("hidden", true);
     p2.setAttribute("hidden", true);
-    message.removeAttribute("id");
-    message.setAttribute("id", "main-message");
+    message.removeAttribute("hidden");
   } 
   if (winner === 'T') {
+    hudImg.removeAttribute("hidden");
     message.innerText = 'Tie game!';
     replayBtn.removeAttribute("hidden");
     board.setAttribute("hidden", true);
     p1.setAttribute("hidden", true);
     p2.setAttribute("hidden", true);
-    message.removeAttribute("id");
-    message.setAttribute("id", "main-message");
   }
 };
 
