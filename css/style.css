@@ -13,15 +13,15 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: 'Source Code Pro', monospace, sans-serif;
   margin: 0;
   --body-bg: rgb(1, 11, 26);
   --text-color: rgb(220, 241, 250);
   --grid-color: rgb(81, 237, 248);
   background-color: var(--body-bg);
   background-image: url("../img/space.jpg");
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +64,13 @@ h1 {
 .player-one {
   grid-area: player-one;
   display: grid;
+  height: 400px;
+  width: 500px;
   margin-right: 10px;
+  justify-content: center;
+  background-image: url("../img/hud.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
   grid-template-areas: 
   "p1-title"
   "p1-tokens";
@@ -86,7 +92,13 @@ h1 {
 .player-two {
   grid-area: player-two;
   display: grid;
+  height: 400px;
+  width: 500px;
   margin-left: 10px;
+  justify-content: center;
+  background-image: url("../img/hud.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
   grid-template-areas: 
   "p2-title"
   "p2-tokens";
@@ -109,8 +121,8 @@ h1 {
   grid-area: board;
   border-radius: 25px;
   display: grid;
-  width: 350px;
-  height: 300px;
+  width: 456px;
+  height: 390px;
   border: 3px solid;
   border-color: var(--grid-color);
   background-color: var(--grid-color);
@@ -235,9 +247,8 @@ h1 {
 }
 
 #main-button {
-  margin-left: 225px;
+  margin-left: 212px;
   margin-top: 20px;
-  color: var(--text-color);
   font-size: 20px;
 }
 
@@ -249,7 +260,7 @@ h1 {
 }
 
 #light {
-  margin-left: 190px;
+  margin-left: 170px;
   margin-top: 20px;
   font-size: 20px;
 }
@@ -262,6 +273,8 @@ h1 {
 }
 
 #p1-title, #p2-title {
+  margin-top: 70px;
+  margin-bottom: -30px;
   margin-left: 65px;
   font-size: 25px;
   color: var(--text-color);
