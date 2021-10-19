@@ -131,6 +131,7 @@ function init(evt) {
   p1.setAttribute("hidden", true);
   p2.setAttribute("hidden", true);
   body.classList.remove("dark");
+  board.classList.remove("dark");
   p2Turn.classList.remove("turn");
   p1Turn.classList.add("turn");
 };

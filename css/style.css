@@ -29,7 +29,7 @@ body {
 }
 
 body.dark {
-  --body-bg: rgb(41, 41, 41);
+  --body-bg: rgb(25, 48, 65);
   --grid-color: rgb(1, 11, 26);
   --background-image: url("../img/token2-glow.png")
   background-color: var(--body-bg);
@@ -41,11 +41,10 @@ section.dark {
   padding: 0.4em;
   box-shadow: 0 0 .2rem #fff,
               0 0 .2rem #fff,
-              0 0 2rem #82f5a3,
-              0 0 0.8rem #82f5a3,
-              0 0 2.8rem #82f5a3,
-              inset 0 0 1.3rem #82f5a3;
-  animation: pulsate 0.11s ease-in-out infinite alternate;
+              0 0 2rem #82f5e4,
+              0 0 0.8rem #82f5e4,
+              0 0 2.8rem #82f5e4,
+              inset 0 0 1.3rem #82f5e4;
 }
 
 main {
@@ -142,6 +141,7 @@ h1 {
   background-color: var(--grid-color);
   grid-template-areas:
   "row1 row2 row3 row4 row5 row6 row7";
+  animation: pulsate 2.5s infinite alternate;
 }
 
 .sq {
@@ -235,13 +235,13 @@ h1 {
 }
 
 .drop-token1 {
-  background-image: url("../img/token1.png");
+  background-image: url("../img/token1-glow.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .drop-token2 {
-  background-image: url("../img/token2.png");
+  background-image: url("../img/token2-glow.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -324,21 +324,15 @@ h1 {
 }
 
 div.p1-tokens > *{
-  background-image: url("../img/token1.png");
+  background-image: url("../img/token1-glow.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 div.p2-tokens > *{
-  background-image: url("../img/token2.png");
+  background-image: url("../img/token2-glow.png");
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-@media screen and (prefers-reduced-motion) { 
-  h1 {
-    animation: none;
-  }
 }
 
 @media only screen and (max-width: 1455px) {
