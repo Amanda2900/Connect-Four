@@ -131,6 +131,8 @@ function init(evt) {
   p1.setAttribute("hidden", true);
   p2.setAttribute("hidden", true);
   body.classList.remove("dark");
+  p2Turn.classList.remove("turn");
+  p1Turn.classList.add("turn");
 };
 
 function modePage(event) {
@@ -141,7 +143,8 @@ function modePage(event) {
 };
 
 function lightPage(event) {
-  // active light mode
+  body.classList.remove("dark");
+  board.classList.remove("dark");
   startGame();
 };
 
@@ -295,6 +298,7 @@ function turnIndicator() {
 
 function darkMode() {
   body.classList.add("dark");
+  board.classList.add("dark");
 };
 
 function checkDarkPref() {
