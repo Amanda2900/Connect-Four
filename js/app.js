@@ -100,6 +100,8 @@ const p2 = document.querySelector(".player-two");
 const body = document.querySelector("body");
 const hudImg = document.querySelector(".main-message");
 const gameTitle = document.querySelector("#game-title");
+const p1Turn = document.querySelector(".p1Light");
+const p2Turn = document.querySelector(".p2Light");
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -193,6 +195,7 @@ function placeToken(event) {
     useTokens();
     boardGrid[x] = turnOrder;
     turnOrder = turnOrder * -1;
+    turnIndicator();
     getWinner();
     render();
   } else {
@@ -205,6 +208,7 @@ function placeToken(event) {
       useTokens();
       boardGrid[x - i] = turnOrder;
       turnOrder = turnOrder * -1;
+      turnIndicator();
       getWinner();
       render();
   }
@@ -279,6 +283,16 @@ function useTokens() {
   }
 };
 
+function turnIndicator() {
+  if (turnOrder === 1) {
+    p2Turn.classList.remove("turn");
+    p1Turn.classList.add("turn");
+  } else {
+    p1Turn.classList.remove("turn");
+    p2Turn.classList.add("turn");
+  }
+};
+
 function darkMode() {
   body.classList.add("dark");
 };
@@ -288,7 +302,7 @@ function checkDarkPref() {
     window.matchMedia("(prefers-color-scheme:dark)").matches &&
     body.className !== "dark"
   ) {
-    toggleLightDark();
+    darkMode();
   }
 };
 

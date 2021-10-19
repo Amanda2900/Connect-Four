@@ -235,6 +235,19 @@ h1 {
   display: none;
 }
 
+.turn {
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+}
+
 #game-title {
   font-size: 50px;
   grid-area: game-title;
@@ -281,7 +294,7 @@ h1 {
 #p1-title, #p2-title {
   margin-top: 70px;
   margin-bottom: -30px;
-  margin-left: 65px;
+  margin-left: 25px;
   font-size: 25px;
   color: var(--text-color);
 }
