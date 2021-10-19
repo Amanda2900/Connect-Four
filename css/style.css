@@ -17,7 +17,7 @@ body {
   margin: 0;
   --body-bg: rgb(1, 11, 26);
   --text-color: rgb(220, 241, 250);
-  --grid-color: rgb(81, 237, 248);
+  --grid-color: rgb(4, 183, 238);
   background-color: var(--body-bg);
   background-image: url("../img/space.jpg");
   background-size: cover;
@@ -29,8 +29,7 @@ body {
 }
 
 body.dark {
-  --body-bg: rgb(81, 237, 248);
-  --text-color: rgb(206, 165, 243);
+  --body-bg: rgb(4, 183, 238);
   --grid-color: rgb(1, 11, 26);
   background-color: var(--body-bg);
 }
@@ -42,18 +41,18 @@ main {
   align-items: center;
   grid-template-rows: 200px;
   grid-template-areas: 
-  ". main-message ."
+  ". game-title ."
   "player-one board player-two";
 }
 
 h1 {
   font-size: 40px;
   color: var(--text-color);
+  font-size: 40px;
 }
 
 .main-message {
   grid-area: main-message;
-  margin-top: 500px;
   height: 400px;
   width: 500px;
   background-image: url("../img/hud.png");
@@ -234,6 +233,13 @@ h1 {
 
 .used {
   display: none;
+}
+
+#game-title {
+  font-size: 50px;
+  grid-area: game-title;
+  color: var(--text-color);
+  margin-left: 50px;
 }
 
 #message {

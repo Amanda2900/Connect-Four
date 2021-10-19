@@ -99,6 +99,7 @@ const p1 = document.querySelector(".player-one");
 const p2 = document.querySelector(".player-two");
 const body = document.querySelector("body");
 const hudImg = document.querySelector(".main-message");
+const gameTitle = document.querySelector("#game-title");
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -154,6 +155,7 @@ function startGame() {
   board.removeAttribute("hidden");
   p1.removeAttribute("hidden");
   p2.removeAttribute("hidden");
+  gameTitle.removeAttribute("hidden");
 };
 
 function render() {
@@ -167,6 +169,7 @@ function render() {
     p1.setAttribute("hidden", true);
     p2.setAttribute("hidden", true);
     message.removeAttribute("hidden");
+    gameTitle.setAttribute("hidden", true);
   } 
   if (winner === 'T') {
     hudImg.removeAttribute("hidden");
@@ -175,6 +178,7 @@ function render() {
     board.setAttribute("hidden", true);
     p1.setAttribute("hidden", true);
     p2.setAttribute("hidden", true);
+    gameTitle.setAttribute("hidden", true);
   }
 };
 
