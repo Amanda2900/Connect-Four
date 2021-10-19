@@ -31,7 +31,6 @@ body {
 body.dark {
   --body-bg: rgb(25, 48, 65);
   --grid-color: rgb(1, 11, 26);
-  --background-image: url("../img/token2-glow.png")
   background-color: var(--body-bg);
 }
 
