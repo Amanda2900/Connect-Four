@@ -169,22 +169,11 @@ function render() {
   // reveal replay button
   if (winner !== null) {
     message.innerText = (winner === 1) ? 'Player 1 wins!' : 'Player 2 wins!';
-    hudImg.removeAttribute("hidden");
-    replayBtn.removeAttribute("hidden");
-    board.setAttribute("hidden", true);
-    p1.setAttribute("hidden", true);
-    p2.setAttribute("hidden", true);
-    message.removeAttribute("hidden");
-    gameTitle.setAttribute("hidden", true);
+    winPage();
   } 
   if (winner === 'T') {
-    hudImg.removeAttribute("hidden");
     message.innerText = 'Tie game!';
-    replayBtn.removeAttribute("hidden");
-    board.setAttribute("hidden", true);
-    p1.setAttribute("hidden", true);
-    p2.setAttribute("hidden", true);
-    gameTitle.setAttribute("hidden", true);
+    winPage();
   }
 };
 
@@ -287,6 +276,16 @@ function useTokens() {
   }
 };
 
+function winPage() {
+  hudImg.removeAttribute("hidden");
+  replayBtn.removeAttribute("hidden");
+  board.setAttribute("hidden", true);
+  p1.setAttribute("hidden", true);
+  p2.setAttribute("hidden", true);
+  message.removeAttribute("hidden");
+  gameTitle.setAttribute("hidden", true);
+};
+
 function turnIndicator() {
   if (turnOrder === 1) {
     p2Turn.classList.remove("turn");
@@ -301,14 +300,3 @@ function darkMode() {
   body.classList.add("dark");
   board.classList.add("dark");
 };
-
-function checkDarkPref() {
-  if (
-    window.matchMedia("(prefers-color-scheme:dark)").matches &&
-    body.className !== "dark"
-  ) {
-    darkMode();
-  }
-};
-
-checkDarkPref();
