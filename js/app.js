@@ -102,6 +102,8 @@ const hudImg = document.querySelector(".main-message");
 const gameTitle = document.querySelector("#game-title");
 const p1Turn = document.querySelector(".p1Light");
 const p2Turn = document.querySelector(".p2Light");
+const instructions = document.querySelector("#instructions");
+const click = new Audio("../audio/click.mp3");
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -162,6 +164,7 @@ function startGame() {
   p1.removeAttribute("hidden");
   p2.removeAttribute("hidden");
   gameTitle.removeAttribute("hidden");
+  instructions.removeAttribute("hidden");
 };
 
 function render() {
@@ -178,6 +181,8 @@ function render() {
 };
 
 function placeToken(event) {
+  click.volume = .10;
+  click.play();
   
   let x = findBottomSq(event.target);
   let i = 0;
@@ -284,6 +289,7 @@ function winPage() {
   p2.setAttribute("hidden", true);
   message.removeAttribute("hidden");
   gameTitle.setAttribute("hidden", true);
+  instructions.setAttribute("hidden", true);
 };
 
 function turnIndicator() {
