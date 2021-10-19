@@ -29,9 +29,9 @@ body {
 }
 
 body.dark {
-  --body-bg: rgb(41, 4, 116);
+  --body-bg: rgb(81, 237, 248);
   --text-color: rgb(206, 165, 243);
-  --grid-color: rgb(206, 165, 243);
+  --grid-color: rgb(1, 11, 26);
   background-color: var(--body-bg);
 }
 
@@ -290,4 +290,17 @@ div.p2-tokens > *{
   background-image: url("../img/token2.png");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 1455px) {
+  .player-one, .player-two {
+    background-image: none;
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 1067px) {
+  .player-one, .player-two {
+    display: none;
+  }
 }

@@ -111,7 +111,7 @@ replayBtn.addEventListener("click", init);
 /*-------------------------------- Functions --------------------------------*/
 init();
 
-function init() {
+function init(evt) {
   message.innerText = "Welcome";
   replayBtn.setAttribute("hidden", true);
   mainBtn.removeAttribute("hidden");
@@ -130,19 +130,19 @@ function init() {
   body.classList.remove("dark");
 };
 
-function modePage() {
+function modePage(event) {
   mainBtn.setAttribute("hidden", true);
   lightBtn.removeAttribute("hidden");
   darkBtn.removeAttribute("hidden");
   message.innerText = "Choose mode";
 };
 
-function lightPage() {
+function lightPage(event) {
   // active light mode
   startGame();
 };
 
-function darkPage() {
+function darkPage(event) {
   darkMode();
   startGame();
 };
