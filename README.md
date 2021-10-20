@@ -8,13 +8,9 @@ Just click on the column on the grid where you would like to place your token. T
 
 <h2>Screenshots</h2>
 
-<img src="img/SS-Three.png"
-     alt="dark mode game screen screenshot"
-     style="float: left; margin-right: 10px;" />
+![dark mode game screenshot](img/SS-Three.png)
 
-<img src="img/SS-Four.png"
-     alt="light mode game screen screenshot"
-     style="float: left; margin-right: 10px;" />
+![dark mode game screenshot](img/SS-Four.png)
 
 <h2>Languages</h2>
 <ul>

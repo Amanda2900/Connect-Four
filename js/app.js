@@ -76,7 +76,7 @@ const winningCombos = [
 ]
 
 /*-------------------------------- Variables --------------------------------*/
-// let draggable;
+
 let turnOrder = 1;
 let boardGrid =[
   null, null, null, null, null, null, null, null, null, null, null, null,
@@ -118,52 +118,79 @@ replayBtn.addEventListener("click", init);
 init();
 
 function init(evt) {
+  // Speak synthesis function speaks on page load
   speak("Welcome");
+
+  // Reset main message
   message.innerText = "Welcome";
-  replayBtn.setAttribute("hidden", true);
-  mainBtn.removeAttribute("hidden");
+
+  // Reset all variables
   turnOrder = 1;
   winner = null;
   boardGrid =[
     null, null, null, null, null, null, null, null, null, null, null, null,
     null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
   ];
+
+  //Resets all board spaces and removes all tokens from board
   squares.forEach(element => element.classList.remove("drop-token1", "drop-token2", "taken"));
   pOneTokens.forEach(element => element.classList.remove("used"));
   pTwoTokens.forEach(element => element.classList.remove("used"));
+
+  //Resets all player tokens 
+  p2Turn.classList.remove("turn");
+  p1Turn.classList.add("turn");
+
+  // Hides any element that is not on load screen
   board.setAttribute("hidden", true);
   p1.setAttribute("hidden", true);
   p2.setAttribute("hidden", true);
+  replayBtn.setAttribute("hidden", true);
+  mainBtn.removeAttribute("hidden");
+
+  //Removes dark mode
   body.classList.remove("dark");
   board.classList.remove("dark");
-  p2Turn.classList.remove("turn");
-  p1Turn.classList.add("turn");
 };
 
+
 function modePage(event) {
+  // Speak synthesis function speaks on page load
   speak("Choose mode");
+
+  // Change main message text
+  message.innerText = "Choose mode";
+
+  // Hide main button and reveal light and dark mode buttons
   mainBtn.setAttribute("hidden", true);
   lightBtn.removeAttribute("hidden");
   darkBtn.removeAttribute("hidden");
-  message.innerText = "Choose mode";
 };
 
+
 function lightPage(event) {
-  body.classList.remove("dark");
-  board.classList.remove("dark");
+  // Start game with default settings
   startGame();
 };
 
+
 function darkPage(event) {
+  // Set dark mode and then start game
   darkMode();
   startGame();
 };
 
+
 function startGame() {
+  // Speak synthesis function speaks on page load
   speak("Let's play");
+
+  // Hide any images and buttons not for main game
   lightBtn.setAttribute("hidden", true);
   darkBtn.setAttribute("hidden", true);
   hudImg.setAttribute("hidden", true);
+
+  // Reveal game board, player tokens, title and instructions
   board.removeAttribute("hidden");
   p1.removeAttribute("hidden");
   p2.removeAttribute("hidden");
@@ -171,76 +198,113 @@ function startGame() {
   instructions.removeAttribute("hidden");
 };
 
+
 function render() {
-  // declare end of the game based on winner value
-  // reveal replay button
+  // Declare end of the game based on value of winner
   if (winner !== null) {
+    // If winner is player one
     if (winner === 1) {
+      // Change text of main message
       message.innerText = 'Player 1 wins!';
-      laser.volume = .20;
-      laser.play();
+
+      // Speak result of game
       speak("Player one wins");
+
+      // Call win function for other win page formatting
       winPage();
+
+    // If winner if player two
     } else if( winner === -1) {
       message.innerText = 'Player 2 wins!';
-      laser.volume = .20;
-      laser.play();
       speak("Player two wins");
       winPage();
+
+    // If game is a tie
     } else {
       message.innerText = 'Tie game!';
-      laser.volume = .20;
-      laser.play();
       speak("Tie game");
       winPage();
     }
   }
 };
 
+
 function placeToken(event) {
+  // Click sound effect for each token
   click.volume = .10;
   click.play();
   
+  // Call function to find bottom square of grid based on div clicked
   let x = findBottomSq(event.target);
+
   let i = 0;
 
+  // If the bottom square of each column is empty
   if (!squares[x].classList.contains("taken")) {
+    // Use token turn function to find which player class to add
+    // This controls with color token is placed on grid
     squares[x].classList.add(tokenTurn());
+
+    // Mark grid spot as taken
     squares[x].classList.add("taken");
+
+    // Call function that controls how many tokens a player has left 
     useTokens();
+
+    // Add to board array which player took that grid space
     boardGrid[x] = turnOrder;
+
+    // Switch player turn
     turnOrder = turnOrder * -1;
+
+    // Call function to change player turn indicator
     turnIndicator();
+
+    // Call get winner and render functions
     getWinner();
     render();
+
   } else {
+    // Loop to find next available space in column on grid
       do {
         i += 1
       } while (squares[x - i].classList.contains("taken"))
 
       squares[x - i].classList.add(tokenTurn());
       squares[x - i].classList.add("taken");
+
       useTokens();
+
       boardGrid[x - i] = turnOrder;
+
       turnOrder = turnOrder * -1;
+
       turnIndicator();
       getWinner();
       render();
   }
 };
 
+
 function getWinner () {
+
   winningCombos.forEach(function (array) {
+
     let counter = 0;
+
     array.forEach(function (element) {
+
       counter += boardGrid[element];
-      // if the amount of 1 or -1 is equal to 3, set winner to the 
-      // value of winning element in boardSquare
+
+      // If the amount of 1 or -1 is equal to 4, set winner to the 
+      // value of winning element in boardGrid
       if (Math.abs(counter) === 4) {
         winner = boardGrid[element];
-        // if the board is full and no winner has been declared, change winner to T
+
+      // If the board is full and no winner has been declared, change winner to T
       } else if (boardGrid.includes(null) === false && winner === null) {
         winner = 'T';
+
       }else {
         return null;
       }
@@ -248,15 +312,20 @@ function getWinner () {
   }) 
 };
 
+
 function tokenTurn(){
+  // Determines which player's token to drop based on value in turnOrder
   if (turnOrder === 1) {
     return "drop-token1";
+
   } else {
     return "drop-token2";
   }
 };
 
+
 function findBottomSq (element){
+  // Finds lowest div in each column based on the id of the div that was clicked on
   if (parseInt(element.id) > -1 && parseInt(element.id) < 6) {
     return 5;
   }
@@ -280,50 +349,76 @@ function findBottomSq (element){
   }
 };
 
+
 function useTokens() {
+// Check each of player's remaining tokens and hide one each time one is placed
   for (i = 0; i <= pTwoTokens.length; i++) {
+
+    // Check which player's tokens to hide based on turnOrder
     if (turnOrder === 1) {
+
       if (!pOneTokens[i].classList.contains("used")) {
+
         pOneTokens[i].classList.add("used");
           break;
+
       } else {
+        //Do nothing
       }
     } else {
+
       if (!pTwoTokens[i].classList.contains("used")) {
+
         pTwoTokens[i].classList.add("used");
         break;
+
       } else {
+        //Do nothing
       }
     }
   }
 };
 
+
 function winPage() {
+  // Play laser sound effect
+  laser.volume = .20;
+  laser.play();
+
+  // Reveal relevent elements for win page
   hudImg.removeAttribute("hidden");
   replayBtn.removeAttribute("hidden");
+  message.removeAttribute("hidden");
+
+  // Hide nonessential elements from win page
   board.setAttribute("hidden", true);
   p1.setAttribute("hidden", true);
   p2.setAttribute("hidden", true);
-  message.removeAttribute("hidden");
   gameTitle.setAttribute("hidden", true);
   instructions.setAttribute("hidden", true);
 };
 
 function turnIndicator() {
+  // Add class to determine which player's indicator is lit based on turnOrder
   if (turnOrder === 1) {
     p2Turn.classList.remove("turn");
     p1Turn.classList.add("turn");
+
   } else {
     p1Turn.classList.remove("turn");
     p2Turn.classList.add("turn");
   }
 };
 
+
 function darkMode() {
+  // Add dark class to activate dark mode
   body.classList.add("dark");
   board.classList.add("dark");
 };
 
+
+// Function to make computer speak text
 function speak(text) {
   let sp = new SpeechSynthesisUtterance(text);
   speechSynthesis.speak(sp);
