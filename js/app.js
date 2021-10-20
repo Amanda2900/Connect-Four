@@ -104,6 +104,8 @@ const p1Turn = document.querySelector(".p1Light");
 const p2Turn = document.querySelector(".p2Light");
 const instructions = document.querySelector("#instructions");
 const click = new Audio("../audio/click.mp3");
+const laser = new Audio("../audio/laser.mp3");
+console.log(laser)
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -117,6 +119,7 @@ replayBtn.addEventListener("click", init);
 init();
 
 function init(evt) {
+  speak("Welcome");
   message.innerText = "Welcome";
   replayBtn.setAttribute("hidden", true);
   mainBtn.removeAttribute("hidden");
@@ -139,6 +142,7 @@ function init(evt) {
 };
 
 function modePage(event) {
+  speak("Choose mode");
   mainBtn.setAttribute("hidden", true);
   lightBtn.removeAttribute("hidden");
   darkBtn.removeAttribute("hidden");
@@ -157,6 +161,7 @@ function darkPage(event) {
 };
 
 function startGame() {
+  speak("Let's play");
   lightBtn.setAttribute("hidden", true);
   darkBtn.setAttribute("hidden", true);
   hudImg.setAttribute("hidden", true);
@@ -171,12 +176,25 @@ function render() {
   // declare end of the game based on winner value
   // reveal replay button
   if (winner !== null) {
-    message.innerText = (winner === 1) ? 'Player 1 wins!' : 'Player 2 wins!';
-    winPage();
-  } 
-  if (winner === 'T') {
-    message.innerText = 'Tie game!';
-    winPage();
+    if (winner === 1) {
+      message.innerText = 'Player 1 wins!';
+      // laser.volume = .10;
+      laser.play();
+      speak("Player one wins");
+      winPage();
+    } else if( winner === -1) {
+      message.innerText = 'Player 2 wins!';
+      // laser.volume = .10;
+      laser.play();
+      speak("Player two wins");
+      winPage();
+    } else {
+      message.innerText = 'Tie game!';
+      laser.volume = .10;
+      laser.play();
+      speak("Tie game");
+      winPage();
+    }
   }
 };
 
@@ -305,4 +323,9 @@ function turnIndicator() {
 function darkMode() {
   body.classList.add("dark");
   board.classList.add("dark");
+};
+
+function speak(text) {
+  let sp = new SpeechSynthesisUtterance(text);
+  speechSynthesis.speak(sp);
 };

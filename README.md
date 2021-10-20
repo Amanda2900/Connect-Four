@@ -13,6 +13,6 @@ Credits:
 
   Star Background Image: https://wallpaperbat.com/green-galaxy-wallpapers
 
-  Favicon: Token by Lars Meiertoberens from the Noun Project
+  Favicon: Token by Lars Meiertoberens from the Noun Project - https://thenounproject.com/
 
   Sound fx: https://www.freesfx.co.uk/Default.aspx
