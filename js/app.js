@@ -105,7 +105,6 @@ const p2Turn = document.querySelector(".p2Light");
 const instructions = document.querySelector("#instructions");
 const click = new Audio("../audio/click.mp3");
 const laser = new Audio("../audio/laser.mp3");
-console.log(laser)
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -178,19 +177,19 @@ function render() {
   if (winner !== null) {
     if (winner === 1) {
       message.innerText = 'Player 1 wins!';
-      // laser.volume = .10;
+      laser.volume = .20;
       laser.play();
       speak("Player one wins");
       winPage();
     } else if( winner === -1) {
       message.innerText = 'Player 2 wins!';
-      // laser.volume = .10;
+      laser.volume = .20;
       laser.play();
       speak("Player two wins");
       winPage();
     } else {
       message.innerText = 'Tie game!';
-      laser.volume = .10;
+      laser.volume = .20;
       laser.play();
       speak("Tie game");
       winPage();
