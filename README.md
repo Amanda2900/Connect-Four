@@ -1,18 +1,37 @@
-Title: Connect Four
+<h1>Power Four</h1>
+Power Four, otherwise known as Connect Four, is a strategy game for two people. Players take turns dropping their tokens into the grid, stacking them vertically, horizontally, or diagonally. Players use strategy to block the other player's moves. The first person to get four in a row wins. This is a childhood favorite of mine and I hope you enjoy it too!
 
-Getting Started:
+<h2>To Play</h2>
+The game is deployed on Netlify here: https://amazing-liskov-5c062c.netlify.app/ 
 
-Screenshots:
+Just click on the column on the grid where you would like to place your token. The token will fill in the lowest available space. Once a player places their token the turn will immediately switch to the other player. Keep placing tokens until one playe achieves four of their tokens in a row.
 
-Technologies Used: JavaScript, HTML, and CSS.
+<h2>Screenshots</h2>
+<img src="../img/SS-Three.png"
+     alt="dark mode game screen screenshot"
+     style="float: left; margin-right: 10px;" />
+<img src="../img/SS-Four.png"
+     alt="light mode game screen screenshot"
+     style="float: left; margin-right: 10px;" />
 
-Next Steps:
+<h2>Languages</h2>
+<ul>
+  <li>Javascript</li>
+  <li>HTML</li>
+  <li>CSS</li>
+</ul>
 
-Credits:
-  Hud Image: Hud Vectors by Vecteezy https://www.vecteezy.com/free-vector/hud 
+<h2>Future Improvements</h2>
+<ul>
+  <li>Add different elements that change in light/dark mode</li>
+  <li>Possibility to play against the computer</li>
+</ul>
 
-  Star Background Image: https://wallpaperbat.com/green-galaxy-wallpapers
-
-  Favicon: Token by Lars Meiertoberens from the Noun Project - https://thenounproject.com/
-
-  Sound fx: https://www.freesfx.co.uk/Default.aspx
+<h2>Built With</h2>
+<ul>
+  <li>Buttons: Bootstrap(https://getbootstrap.com/docs/5.1/components/buttons/)</li>
+  <li>HUD Image: Hud Vectors by Vecteezy https://www.vecteezy.com/free-vector/hud</li>
+  <li>Star Background Image: Wallpaper Bat https://wallpaperbat.com/green-galaxy-wallpapers</li>
+  <li>Favicon: Token by Lars Meiertoberens from the Noun Project https://thenounproject.com/</li>
+  <li>Sound fx: FreeSFK https://www.freesfx.co.uk/Default.aspx</li>
+</ul>
