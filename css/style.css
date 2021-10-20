@@ -363,7 +363,7 @@ div.p2-tokens > *{
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 400px) {
   
   .player-one, .player-two {
     display: none;
