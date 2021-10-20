@@ -7,10 +7,12 @@ The game is deployed on Netlify here: https://amazing-liskov-5c062c.netlify.app/
 Just click on the column on the grid where you would like to place your token. The token will fill in the lowest available space. Once a player places their token the turn will immediately switch to the other player. Keep placing tokens until one playe achieves four of their tokens in a row.
 
 <h2>Screenshots</h2>
-<img src="../img/SS-Three.png"
+
+<img src="img/SS-Three.png"
      alt="dark mode game screen screenshot"
      style="float: left; margin-right: 10px;" />
-<img src="../img/SS-Four.png"
+
+<img src="img/SS-Four.png"
      alt="light mode game screen screenshot"
      style="float: left; margin-right: 10px;" />
 
