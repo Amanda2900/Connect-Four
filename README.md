@@ -32,10 +32,10 @@ Just click on the column on the grid where you would like to place your token. T
 
 <h2>Built With</h2>
 <ul>
-  <li>Font: Google Fonts https://fonts.google.com/</li>  
-  <li>Buttons: Bootstrap https://getbootstrap.com/docs/5.1/components/buttons/</li>
-  <li>HUD Image: Hud Vectors by Vecteezy https://www.vecteezy.com/free-vector/hud</li>
-  <li>Star Background Image: Wallpaper Bat https://wallpaperbat.com/green-galaxy-wallpapers</li>
-  <li>Favicon: Token by Lars Meiertoberens from the Noun Project https://thenounproject.com/</li>
-  <li>Sound fx: FreeSFK https://www.freesfx.co.uk/Default.aspx</li>
+  <li><b>Font:</b> Google Fonts https://fonts.google.com/</li>  
+  <li><b>Buttons:</b> Bootstrap https://getbootstrap.com/docs/5.1/components/buttons/</li>
+  <li><b>HUD Image:</b> Hud Vectors by Vecteezy https://www.vecteezy.com/free-vector/hud</li>
+  <li><b>Star Background Image:</b> Wallpaper Bat https://wallpaperbat.com/green-galaxy-wallpapers</li>
+  <li><b>Favicon:</b> Token by Lars Meiertoberens from the Noun Project https://thenounproject.com/</li>
+  <li><b>Sound fx:</b> FreeSFK https://www.freesfx.co.uk/Default.aspx</li>
 </ul>
