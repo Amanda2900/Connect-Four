@@ -80,7 +80,9 @@ const winningCombos = [
 let turnOrder = 1;
 let boardGrid =[
   null, null, null, null, null, null, null, null, null, null, null, null,
-  null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+  null, null, null, null, null, null, null, null, null, null, null, null, 
+  null, null, null, null, null, null, null, null, null, null, null, null, 
+  null, null, null, null, null, null
 ];
 let winner = null;
 
@@ -136,7 +138,9 @@ function init(evt) {
   winner = null;
   boardGrid =[
     null, null, null, null, null, null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+    null, null, null, null, null, null, null, null, null, null, null, null, 
+    null, null, null, null, null, null, null, null, null, null, null, null, 
+    null, null, null, null, null, null
   ];
 
   //Resets all board spaces and removes all tokens from board
