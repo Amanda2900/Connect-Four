@@ -115,7 +115,6 @@ darkBtn.addEventListener("click", darkPage);
 board.addEventListener("click", placeToken);
 replayBtn.addEventListener("click", init);
 body.addEventListener("mouseover", playMusic);
-
 // Loop background music after it ends
 bgSound.addEventListener("ended", () => {
   bgSound.currentTime = 0;
@@ -126,7 +125,9 @@ bgSound.addEventListener("ended", () => {
 init();
 
 function init(evt) {
+  // Speak welcome message
   speak("Welcome");
+
   // Reset main message
   message.innerText = "Welcome";
 
@@ -425,7 +426,7 @@ function speak(text) {
 
 // 
 function playMusic() {
-  // Play 
+  // Play background music
   bgSound.volume = .30;
   bgSound.play();
 };

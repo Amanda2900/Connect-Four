@@ -19,6 +19,10 @@ Just click on the column on the grid where you would like to place your token. T
   <li>CSS</li>
 </ul>
 
+<h2>Wireframe</h2>
+
+<img src="img/wireframe.png" alt="wireframe screenshot"/>
+
 <h2>Future Improvements</h2>
 <ul>
   <li>Add more elements that change in light/dark mode</li>
@@ -28,7 +32,8 @@ Just click on the column on the grid where you would like to place your token. T
 
 <h2>Built With</h2>
 <ul>
-  <li>Buttons: Bootstrap(https://getbootstrap.com/docs/5.1/components/buttons/)</li>
+  <li>Font: Google Fonts https://fonts.google.com/</li>  
+  <li>Buttons: Bootstrap https://getbootstrap.com/docs/5.1/components/buttons/</li>
   <li>HUD Image: Hud Vectors by Vecteezy https://www.vecteezy.com/free-vector/hud</li>
   <li>Star Background Image: Wallpaper Bat https://wallpaperbat.com/green-galaxy-wallpapers</li>
   <li>Favicon: Token by Lars Meiertoberens from the Noun Project https://thenounproject.com/</li>
