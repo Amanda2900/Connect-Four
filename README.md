@@ -38,4 +38,5 @@ Just click on the column on the grid where you would like to place your token. T
   <li><b>Star Background Image:</b> Wallpaper Bat https://wallpaperbat.com/green-galaxy-wallpapers</li>
   <li><b>Favicon:</b> Token by Lars Meiertoberens from the Noun Project https://thenounproject.com/</li>
   <li><b>Sound fx:</b> FreeSFK https://www.freesfx.co.uk/Default.aspx</li>
+  <li><b>Neon effect:</b> CSS Tricks https://css-tricks.com/how-to-create-neon-text-with-css/</li>
 </ul>
