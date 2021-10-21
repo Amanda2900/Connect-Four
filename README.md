@@ -2,7 +2,7 @@
 Power Four, otherwise known as Connect Four, is a strategy game for two people. Players take turns dropping their tokens into the grid, stacking them vertically, horizontally, or diagonally. Players use strategy to block the other player's moves. The first person to get four in a row wins. This is a childhood favorite of mine and I hope you enjoy it too!
 
 <h2>To Play</h2>
-The game is deployed on Netlify here: https://amazing-liskov-5c062c.netlify.app/ 
+The game is deployed <a href="https://amazing-liskov-5c062c.netlify.app/">here</a>.
 
 Just click on the column on the grid where you would like to place your token. The token will fill in the lowest available space. Once a player places their token the turn will immediately switch to the other player. Keep placing tokens until one player achieves four of their tokens in a row.
 
