@@ -287,17 +287,18 @@ function placeToken(event) {
 
 
 function getWinner () {
-
+  // Check through each array in winningCombos
   winningCombos.forEach(function (array) {
 
     let counter = 0;
 
+    // Check through each element within each array
     array.forEach(function (element) {
-
+      // Add counter to value of matching element in boardGrid
       counter += boardGrid[element];
 
-      // If the amount of 1 or -1 is equal to 4, set winner to the 
-      // value of winning element in boardGrid
+      // If counter is equal to 4 for any of the winning combos, 
+      // set winner to the value of winning player number in boardGrid
       if (Math.abs(counter) === 4) {
         winner = boardGrid[element];
 
@@ -354,26 +355,18 @@ function useTokens() {
 // Check each of player's remaining tokens and hide one each time one is placed
   for (i = 0; i <= pTwoTokens.length; i++) {
 
-    // Check which player's tokens to hide based on turnOrder
+    // Check which player's token to hide based on turnOrder
     if (turnOrder === 1) {
 
       if (!pOneTokens[i].classList.contains("used")) {
-
         pOneTokens[i].classList.add("used");
           break;
-
-      } else {
-        //Do nothing
       }
     } else {
 
       if (!pTwoTokens[i].classList.contains("used")) {
-
         pTwoTokens[i].classList.add("used");
         break;
-
-      } else {
-        //Do nothing
       }
     }
   }
