@@ -105,6 +105,7 @@ const p2Turn = document.querySelector(".p2Light");
 const instructions = document.querySelector("#instructions");
 const click = new Audio("../audio/click.mp3");
 const laser = new Audio("../audio/laser.mp3");
+const bgSound = new Audio("../audio/bgSound.mp3");
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -113,14 +114,19 @@ lightBtn.addEventListener("click", lightPage);
 darkBtn.addEventListener("click", darkPage);
 board.addEventListener("click", placeToken);
 replayBtn.addEventListener("click", init);
+body.addEventListener("mouseover", playMusic);
+
+// Loop background music after it ends
+bgSound.addEventListener("ended", () => {
+  bgSound.currentTime = 0;
+  bgSound.play();
+}, false);
 
 /*-------------------------------- Functions --------------------------------*/
 init();
 
 function init(evt) {
-  // Speak synthesis function speaks on page load
   speak("Welcome");
-
   // Reset main message
   message.innerText = "Welcome";
 
@@ -415,4 +421,11 @@ function darkMode() {
 function speak(text) {
   let sp = new SpeechSynthesisUtterance(text);
   speechSynthesis.speak(sp);
+};
+
+// 
+function playMusic() {
+  // Play 
+  bgSound.volume = .30;
+  bgSound.play();
 };
